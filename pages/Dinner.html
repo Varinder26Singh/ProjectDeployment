@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calorie Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+              @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Staatliches&display=swap');
+      
+      *{
+       margin: 0;
+      } 
+      
+       header {
+           background-color: #222;
+           display: flex;
+           justify-content: space-between;
+           width: 100%;
+       }
+      
+       header h2 {
+           margin: 8px;
+           font-size: 40px;
+           color: #fcfdf8;
+           font-family: 'Staatliches', cursive;
+           user-select: none;
+       }
+      
+       nav ul {
+           list-style-type: none;
+           margin: 0;
+           padding: 0;
+           overflow: hidden;
+       }
+      
+       nav li {
+           float: left;
+           margin: 8px;
+       }
+      
+       nav li a {
+           display: block;
+           color: #fff;
+           text-align: center;
+           padding: 14px 16px;
+           text-decoration: none;
+           border-radius: 5px;
+           transition: background-color 0.3s ease-in-out;
+           font-family: "Staatliches",cursive;
+       }
+      
+       nav li a:hover {
+           background-color: #555;
+       }
+        
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        
+        #close-button {
+            display: block;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        #close-button:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        #image-container {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        #image-container img {
+            max-height: 80%;
+            max-width: 80%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #table-container {
+            margin-top: 50px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: center;
+            border-style: groove;
+            color: aliceblue;
+        }
+
+        tr:hover {
+            background-color: coral;
+        }
+
+
+        .selected {
+            background-color: yellow;
+        }
+
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body {
+            /* background-image: url('https://media.istockphoto.com/id/1343403562/photo/weight-loss-fitness-and-counting-calories-concept.jpg?s=612x612&w=0&k=20&c=o3WGfKPJ7HVkMPGQWm_ioxS40g0xs7ygqK4KgSou6AY=');
+
+            background-repeat: no-repeat;
+            background-size: cover; */
+            animation: fadeIn 1s ease-in-out;
+            background-image: url('https://img.freepik.com/premium-photo/colorful-various-herbs-spices-cooking-dark-background_370312-476.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* min-height: 100vh;
+            display: flex;
+            flex-direction: column; */
+
+        }
+
+        .container-fluid {
+            flex: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        #image-container {
+            animation: scaleUp 0.3s ease-in-out forwards;
+        }
+
+        @keyframes scaleUp {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        #image-container.hide {
+            animation: scaleDown 0.3s ease-in-out forwards;
+        }
+
+        @keyframes scaleDown {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(0);
+            }
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            color: blue;
+            margin-top: 2rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        #overlay {
+            /* existing code */
+            animation: fadeIn 0.3s ease-in-out forwards;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes scaleUp {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        #image-container {
+            /* existing code */
+            animation: scaleUp 0.3s ease-in-out forwards;
+        }
+
+        @keyframes scaleDown {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(0);
+            }
+        }
+
+        #image-container.hide {
+            animation: scaleDown 0.3s ease-in-out forwards;
+        }
+
+        /* Add a class for the total calories container */
+        .total-calories-container {
+            display: inline-block;
+            padding: 2px 2px;
+            border: 2px solid blue;
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Add a class for the total calories text */
+        .total-calories {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Add keyframes for the fadeIn animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+
+<body class="bg-light">
+    <header>
+        <div class="header-logo">
+          <h2>ACTIVESENSE</h2>
+        </div>
+        <div class="header-options">
+          <nav>
+            <ul>
+              <li><a href="/protected">Home</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    <h1>Calories Calculator</h1>
+    <table class="center">
+        <tr>
+            <th>Meal</th>
+            <th>Calories</th>
+            <th>Select</th>
+        </tr>
+        <tr>
+            <td
+                onclick="showImage('https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.indianhealthyrecipes.com%2Fwp-content%2Fuploads%2F2021%2F08%2Fchana-masala-recipe.jpg&tbnid=FgVvyrTPyUgFSM&vet=12ahUKEwjvpN27xNT-AhWeqNgFHbPjAooQMygAegUIARCJAg..i&imgrefurl=https%3A%2F%2Fwww.indianhealthyrecipes.com%2Fchana-masala%2F&docid=sZu0lZBl5qhywM&w=1200&h=1200&q=channa%20masala&ved=2ahUKEwjvpN27xNT-AhWeqNgFHbPjAooQMygAegUIARCJAg')">
+                Chana Masala</td>
+            <td>210</td>
+            <td><input type="checkbox"
+                    onclick="this.parentElement.classList.toggle('selected'); calculateCalories();" /></td>
+        </tr>
+        <tr>
+            <td onclick="showImage('./Aloo Gobi.jpg')">Aloo Gobi</td>
+            <td>180</td>
+            <td><input type="checkbox"
+                    onclick="this.parentElement.classList.toggle('selected'); calculateCalories();" /></td>
+        </tr>
+        <tr>
+            <td onclick="showImage('./Dal Makhani.jpg')">Dal Makhani</td>
+            <td>340</td>
+            <td><input type="checkbox"
+                    onclick="this.parentElement.classList.toggle('selected'); calculateCalories();" /></td>
+        </tr>
+        <tr>
+            <td onclick="showImage('./Baingan Bharta.jpg')">Baingan Bharta</td>
+            <td>210</td>
+            <td><input type="checkbox"
+                    onclick="this.parentElement.classList.toggle('selected'); calculateCalories();" /></td>
+        </tr>
+        <tr>
+            <td onclick="showImage('./Palak Paneer.jpg')">Palak Paneer</td>
+            <td>200</td>
+            <td><input type="checkbox"
+                    onclick="this.parentElement.classList.toggle('selected'); calculateCalories();" /></td>
+        </tr>
+        <tr>
+            <td onclick="showImage('./Rajma Chawal.jpg')">Rajma Chawal</td>
+            <td>240</td>
+            <td><input type="checkbox"
+                    onclick="this.parentElement.classList.toggle('selected'); calculateCalories();" /></td>
+        </tr>
+        <tr>
+            <td onclick="showImage('./Vegetable Biryani.jpeg')">Vegetable Biryani</td>
+            <td>240</td>
+            <td><input type="checkbox"
+                    onclick="this.parentElement.classList.toggle('selected'); calculateCalories();" /></td>
+        </tr>
+    </table>
+    <br><br>
+    <center>
+        <div class="total-calories-container">
+            <p class="total-calories" style="color: whitesmoke;">Total Calories: <span id="total"></span></p>
+        </div>
+    </center>
+
+    <div id="overlay" onclick="hideOverlay()">
+        <button id="close-button" onclick="event.stopPropagation(); hideOverlay();">×</button>
+        <div id="image-container">
+            <img id="image" src="">
+        </div>
+        <script>
+            function showImage(src) {
+                document.getElementById('overlay').style.display = 'block';
+                document.getElementById('image').src = src;
+            }
+
+            function hideOverlay() {
+                document.getElementById('overlay').style.display = 'none';
+            }
+
+            function calculateCalories() {
+                let totalCalories = 0;
+                const selectedMeals = document.querySelectorAll('.selected');
+                selectedMeals.forEach(function (meal) {
+                    const calories = meal.parentNode.querySelector('td:nth-of-type(2)').textContent;
+                    totalCalories += parseInt(calories);
+                });
+                document.getElementById('total').textContent = totalCalories;
+            }
+            function hideOverlay() {
+                document.getElementById('overlay').style.display = 'none';
+            }
+
+            function showImage(src) {
+                const overlay = document.getElementById('overlay');
+                const imageContainer = document.getElementById('image-container');
+                overlay.style.display = 'block';
+                imageContainer.classList.add('hide');
+                setTimeout(() => {
+                    document.getElementById('image').src = src;
+                    imageContainer.classList.remove('hide');
+                }, 300);
+            }
+
+        </script>
+
+
+        <div id="overlay" onclick="hideOverlay()">
+            <img id="image" src="">
+        </div>
+</body>
+
+</html>

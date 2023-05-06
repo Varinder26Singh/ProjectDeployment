@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Staatliches&display=swap');
+
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .header-main {
+            padding-bottom: 30px;
+            background-color: black;
+            display: flex;
+            width: 100%;
+            position: fixed;
+            justify-content: center;
+        }
+
+        .header-main h1 {
+            font-family: 'Staatliches', cursive;
+            margin-top: 10px;
+            font-size: 2.5em;
+            color: #fcfdf8;
+            user-select: none;
+        }
+
+        .main-options {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .option {
+            float: left;
+            width: 25%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            transition: 2s;
+            overflow: hidden;
+        }
+
+        .option:hover {
+            transition: 0.5s ease-in-out;
+            width: 33%;
+        }
+
+        #option-1 {
+            background-image: url(images/diet.jpg);
+        }
+
+        .diet-button {
+            display: none;
+        }
+
+        .diet-container {
+            display: none;
+        }
+
+        #option-1:hover .diet-container {
+            display: block;
+            margin-top: 70vh;
+            background-color: black;
+            opacity: 0.4;
+        }
+
+        #option-1:hover .diet-container:hover {
+            background-color: #fdfcf8;
+            opacity: 0.4;
+        }
+
+        #option-1:hover .diet-button {
+            display: block;
+            font-family: 'Staatliches', cursive;
+            color: #fcfdf8;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        #option-1:hover .diet-button:hover {
+            color: black;
+        }
+
+        #option-2 {
+            background-image: url(images/water.jpg);
+        }
+
+        .water-button {
+            display: none;
+        }
+
+        .water-container {
+            display: none;
+        }
+
+        #option-2:hover .water-container {
+            display: block;
+            margin-top: 70vh;
+            background-color: #fcfdf8;
+            opacity: 0.4;
+            backdrop-filter: blur(8px);
+        }
+
+        #option-2:hover .water-button {
+            display: block;
+            font-family: 'Staatliches', cursive;
+            color: #0d1316;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        #option-2:hover .water-container:hover {
+            background-color: #0d1316;
+        }
+
+        #option-2:hover .water-button:hover {
+            color: #fcfdf8;
+        }
+
+        #option-3 {
+            background-image: url(images/yoga.jpg);
+        }
+
+        .yoga-button {
+            display: none;
+        }
+
+        .yoga-container {
+            display: none;
+        }
+
+        #option-3:hover .yoga-container {
+            display: block;
+            margin-top: 70vh;
+            background-color: #142126;
+            opacity: 0.4;
+            backdrop-filter: blur(8px);
+        }
+
+        #option-3:hover .yoga-button {
+            display: block;
+            font-family: 'Staatliches', cursive;
+            color: #fcfdf8;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        #option-3:hover .yoga-container:hover {
+            background-color: #fcfdf8;
+        }
+
+        #option-3:hover .yoga-button:hover {
+            color: #142126;
+        }
+
+        #option-4 {
+            background-image: url(images/smart-watch.jpg);
+        }
+
+        .watch-button {
+            display: none;
+        }
+
+        .watch-container {
+            display: none;
+        }
+
+        #option-4:hover .watch-container {
+            display: block;
+            margin-top: 70vh;
+            background-color: #fcfdf8;
+            opacity: 0.4;
+            backdrop-filter: blur(8px);
+        }
+
+        #option-4:hover .watch-button {
+            display: block;
+            font-family: 'Staatliches', cursive;
+            color: #142126;
+            font-size: 40px;
+            text-align: center;
+        }
+        #option-4:hover .watch-container:hover {
+            background-color: #142126;
+        }
+
+        #option-4:hover .watch-button:hover {
+            color: #fcfdf8;
+        }
+    </style>
+
+    <header class="header-main">
+        <h1>Our Features</h1>
+    </header>
+
+    <main>
+        <div class="main-options">
+            <div class="option" id="option-1">
+                <div class="diet-container">
+                    <a href="/protected/Diet" class="diet-button">Get Diet <br> Recommedations</a>
+                </div>
+            </div>
+
+            <div class="option" id="option-2">
+                <div class="water-container">
+                    <a href="/protected/Water" class="water-button">LiquidAnalytics</a>
+                </div>
+            </div>
+
+            <div class="option" id="option-3">
+                <div class="yoga-container">
+                    <a href="/protected/Yoga" class="yoga-button">Asana AI</a>
+                </div>
+            </div>
+
+            <div class="option" id="option-4">
+                <div class="watch-container">
+                    <a href="/protected/Watch" class="watch-button">Track your progress</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

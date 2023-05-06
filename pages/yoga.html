@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Asana AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h2>ACTIVESENSE</h2>
+        <nav>
+            <ul>
+                <li><a href="/protected">Home</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="bmi-input">
+        <h1>Asana AI</h1>
+        <p>Enter below the details to see yoga poses that can help you:</p>
+
+        <form id="bmi-form">
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" name="height" min="0" placeholder="0"
+                onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                required>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" min="0" placeholder="0"
+                onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                required>
+
+            <button id="mybutton">Calculate </button>
+
+        </form>
+    </div>
+
+    <div id="bmi-result"></div>
+
+    <main>
+        <section id="yoga-recommendations" class="animate__animated">
+
+        </section>
+    </main>
+
+</body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Staatliches&display=swap');
+    /* Body styles */
+
+    body {
+        font-family: 'Staatliches', cursive;
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+        color: #333;
+        background-image: url(../pages/images/yoga.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    header {
+        background-color: #2b598f;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 8px;
+        width: 100%;
+    }
+
+    header h2 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 8px;
+        font-size: 40px;
+        color: #fcfdf8;
+        font-family: 'Staatliches', cursive;
+        user-select: none;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    nav li {
+        margin-top: 8px;
+        float: left;
+        margin-right: 20px;
+    }
+
+    nav li a {
+        display: block;
+        color: #fcfdf8;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    nav li a:hover {
+        background-color: #2980b9;
+    }
+
+
+    /* Header styles */
+    .bmi-input {
+        padding: 20px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(14px);
+    }
+
+    .bmi-input h1 {
+        font-size: 2.5rem;
+        margin: 0;
+        text-align: center;
+        color: #2c3e50;
+    }
+
+    .bmi-input p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #555;
+    }
+
+    #height,
+    #weight {
+        opacity: 1;
+        border: none;
+        border-bottom: 2px solid grey;
+        background: none;
+        width: auto;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        font-family: 'Oswald', cursive;
+    }
+
+    /* Yoga recommendations styles */
+
+    #yoga-recommendations {
+        backdrop-filter: blur(14px);
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+    }
+
+    #yoga-recommendations h2 {
+        font-size: 2rem;
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #2c3e50;
+    }
+
+    #yoga-recommendations ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    #yoga-recommendations li {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin-bottom: 5px;
+        color: #fcfdf8;
+        list-style: none;
+        font-family: 'Oswald', cursive;
+        padding: 4px;
+    }
+
+    #yoga-recommendations li:before {
+        content: '\2022';
+        margin-right: 10px;
+        color: #27ae60;
+    }
+
+    #yoga-recommendations li:hover {
+        background-color: #f2f2f2;
+        color: #2b598f;
+    }
+
+    #yoga-recommendations button{
+        margin-top: 20px;
+        margin-left: 10px;
+
+    }
+
+    button {
+        color: #fcfdf8;
+        padding: 14px;
+        border: none;
+        background-color: #2b598f;
+        cursor: pointer;
+        font-family: 'Oswald', cursive;
+        letter-spacing: 2px;
+        font-size: 1.1em;
+    }
+
+    button:hover {
+        background-color: #fcfdf8;
+        color: #2b598f;
+    }
+
+    .bmi-input {
+        animation-name: slide-down;
+        animation-duration: 0.8s;
+        animation-timing-function: ease-out;
+    }
+
+    @keyframes slide-down {
+        from {
+            transform: translateY(-100%);
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    #yoga-recommendations ul {
+        animation-name: fade-in;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #bmi-form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    #bmi-form label {
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    #bmi-form input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    #bmi-form button[type="submit"] {
+        background-color: #2980b9;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #bmi-form button[type="submit"]:hover {
+        background-color: #3498db;
+    }
+
+    #bmi-result {
+        margin-top: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+
+    /*==========================Animation==========================*/
+    #yoga-recommendations.animate__animated {
+        animation-name: fadeInUp;
+        animation-duration: 1s;
+    }
+
+    #bmi-result {
+        margin-top: 20px;
+        font-size: 30px;
+        font-weight: bold;
+        background-color: white;
+        color: green;
+        opacity: 0.4;
+    }
+</style>
+
+
+<script>
+    const bmiForm = document.getElementById("bmi-form");
+    const bmiResult = document.getElementById("bmi-result");
+    const yogaRecommendations = document.getElementById("yoga-recommendations");
+
+    bmiForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const height = parseFloat(document.getElementById("height").value);
+        const weight = parseFloat(document.getElementById("weight").value);
+
+        if (isNaN(height) || isNaN(weight)) {
+            bmiResult.textContent = "Please enter valid numbers for height and weight.";
+            return;
+        }
+
+        if (height === 0 || weight === 0) {
+            bmiResult.textContent = "Height and weight cannot be zero.";
+            return;
+        }
+
+        const bmi = weight / Math.pow(height / 100, 2);
+        const roundedBmi = bmi.toFixed(1);
+
+        let yogaPoses = [];
+
+        let message = `Your BMI is ${roundedBmi}. `;
+        if (bmi < 18.5) {
+            message += "You are underweight.";
+            yogaPoses = ["Warrior II pose (Virabhadrasana II): This pose can help strengthen the legs, hips, and core.", "Boat pose (Navasana): This pose can help strengthen the abs and hip flexors.", "Chair pose (Utkatasana): This pose can help strengthen the thighs, glutes, and core."];
+        } else if (bmi < 25) {
+            message += "You have a normal weight.";
+            yogaPoses = ["Downward-facing dog pose (Adho Mukha Svanasana): This pose can help stretch the hamstrings, calves, and spine, and also helps to calm the mind.", "Tree pose (Vrksasana): This pose can help improve balance and stability, and also helps to stretch the hips and legs.", "Child's pose (Balasana): This pose can help reduce stress and tension in the body and mind."];
+        } else if (bmi < 30) {
+            message += "You are overweight.";
+            yogaPoses = ["Bridge pose (Setu Bandha Sarvangasana): This pose can help strengthen the glutes, hamstrings, and core.", "Chair pose (Utkatasana): This pose can help strengthen the thighs, glutes, and core.", "Warrior I pose (Virabhadrasana I): This pose can help strengthen the legs and core, and also helps to stretch the chest and shoulders."];
+        } else {
+            message += "You are obese.";
+            yogaPoses = ["Mountain pose (Tadasana): This pose can help improve posture and balance, and also helps to stretch the spine and legs.", "Cat-Cow pose (Marjaryasana-Bitilasana): This pose can help stretch the spine and improve flexibility in the back and hips.", "Corpse pose (Savasana): This pose can help reduce stress and tension in the body and mind, and also helps to promote relaxation."]
+        }
+
+        bmiResult.innerHTML = message;
+
+        const yogaList = document.createElement("ul");
+
+        yogaPoses.forEach((pose) => {
+            const yogaItem = document.createElement("li");
+            yogaItem.textContent = pose;
+            yogaList.appendChild(yogaItem);
+        });
+
+        yogaRecommendations.textContent = "";
+        yogaRecommendations.appendChild(yogaList);
+
+        const newButton = document.createElement("button");
+        newButton.textContent = "Start Practicing";
+        newButton.id = "start-yoga";
+
+
+        newButton.className = "animate__animated";
+        newButton.addEventListener("click", function (event) {
+            window.open('https://yoga-recongnition.onrender.com/');
+        });
+
+        yogaRecommendations.appendChild(newButton);
+    });
+</script>
+
+</html>

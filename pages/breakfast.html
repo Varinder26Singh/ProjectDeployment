@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calories in Breakfast</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Staatliches&display=swap');
+
+    * {
+      margin: 0;
+    }
+
+    header {
+      background-color: #222;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    header h2 {
+      margin: 8px;
+      font-size: 40px;
+      color: #fcfdf8;
+      font-family: 'Staatliches', cursive;
+      user-select: none;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    nav li {
+      float: left;
+      margin: 8px;
+    }
+
+    nav li a {
+      display: block;
+      color: #fff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease-in-out;
+      font-family: "Staatliches", cursive;
+    }
+
+    nav li a:hover {
+      background-color: #555;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 20px;
+      width: 95%;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    tr {
+      background-color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    tr:hover {
+      background-color: #f2f2f2;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      color: black;
+      margin-top: 2rem;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes pulse {
+      0% {
+        background-color: #f2f2f2;
+      }
+
+      50% {
+        background-color: #e0e0e0;
+      }
+
+      100% {
+        background-color: #f2f2f2;
+      }
+    }
+
+    th {
+      animation: pulse 2s infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-logo">
+      <h2>ACTIVESENSE</h2>
+    </div>
+    <div class="header-options">
+      <nav>
+        <ul>
+          <li><a href="/protected">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <h1>Calories in Breakfast</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Calories</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Bacon</td>
+        <td>45</td>
+      </tr>
+      <tr>
+        <td>Whole wheat toast</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td>Butter</td>
+        <td>102</td>
+      </tr>
+      <tr>
+        <td>Orange juice</td>
+        <td>110</td>
+      </tr>
+      <tr>
+        <td>Coffee</td>
+        <td>2</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

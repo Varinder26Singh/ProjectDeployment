@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activesense - Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Staatliches&display=swap');
+
+        html {
+            height: 100%;
+            font-family: 'Staatliches', cursive;
+            border: 1px solid #ccc;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #4e54c8;
+            /* border: 10px solid rgb(159, 159, 241); */
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+
+        }
+
+        h1 {
+            font-size: 36px;
+            font-family: "Staatliches", cursive;
+        }
+
+        p {
+            font-size: 18px;
+            font-family: "Oswald", cursive;
+        }
+
+        .login-page-illustration {
+            text-align: center;
+            animation: slide-in 1s ease-out;
+        }
+
+        .form-container {
+            margin-top: 30px;
+            animation: fade-in 1s ease-out;
+            padding: 20px;
+        }
+
+        .login-form {
+            display: inline-block;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: 0.3s;
+            align-items: center;
+        }
+
+        .login-form:hover {
+            transform: scale(1.05);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+            font-size: 16px;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="password"]::placeholder {
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: rgb(159, 159, 241);
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: rgb(159, 159, 241);
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(129, 129, 211);
+        }
+
+        @keyframes slide-in {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            font-family: 'Exo', sans-serif;
+        }
+
+
+        .area {
+            background: #4e54c8;
+            background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+            width: 100%;
+            height: 100vh;
+
+
+        }
+
+        .circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+
+        }
+
+        .circles li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+
+        .circles li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        .circles li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+
+        .circles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        .circles li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .circles li:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+
+        .circles li:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+
+        .circles li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        .circles li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+
+        .circles li:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+
+        @keyframes animate {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+
+        .main {
+            margin-top: 3%;
+            padding: 80px;
+            padding-top: 50px;
+            background-color: #f3f3f45c;
+            border-style: solid;
+            border-color: #1a3b5d5c;
+            border-width: 20px;
+            border-radius: 20px;
+
+        }
+
+        button {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            color: white;
+            background-color: #171717;
+            padding: 1em 2em;
+            border: none;
+            border-radius: .6rem;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        button span:not(:nth-child(6)) {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: 30px;
+            width: 30px;
+            background-color: #0c66ed;
+            border-radius: 50%;
+            transition: .6s ease;
+        }
+
+        button span:nth-child(6) {
+            position: relative;
+        }
+
+        button span:nth-child(1) {
+            transform: translate(-3.3em, -4em);
+        }
+
+        button span:nth-child(2) {
+            transform: translate(-6em, 1.3em);
+        }
+
+        button span:nth-child(3) {
+            transform: translate(-.2em, 1.8em);
+        }
+
+        button span:nth-child(4) {
+            transform: translate(3.5em, 1.4em);
+        }
+
+        button span:nth-child(5) {
+            transform: translate(3.5em, -3.8em);
+        }
+
+        button:hover span:not(:nth-child(6)) {
+            transform: translate(-50%, -50%) scale(4);
+            transition: 1.5s ease;
+        }
+
+        .user,.pass, #username, #password, #googlelogin, .text{
+            font-family: "Oswald", cursive;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Activesense</h1>
+        <p>Log in to get started.</p>
+        <div class="form-container">
+            <form class="login-form" id="login-form" action="/login" method="post">
+                <label for="username" class="user">Username</label>
+                <input type="text" id="username" name="username" placeholder="abc@xyz.com">
+                <label for="password" class="pass">Password</label>
+                <input type="password" id="password" name="password">
+
+                <button type="submit" id="login-form-submit">
+                    <span class="circle1"></span>
+                    <span class="circle2"></span>
+                    <span class="circle3"></span>
+                    <span class="circle4"></span>
+                    <span class="circle5"></span>
+                    <span class="text">Login</span>
+                </button>
+
+                <!-- <button type="submit" id="login-form-submit">
+                    <span class="circle1"></span>
+                    <span class="circle2"></span>
+                    <span class="circle3"></span>
+                    <span class="circle4"></span>
+                    <span class="circle5"></span>
+                    <span class="text">Sign Up</span>
+                </button> -->
+
+                <label id="error-message"></label>
+            </form>
+
+        </div>
+        <div class="social-login">
+            <button class="google-login" id="googlelogin">Log in with Google</button>
+        </div>
+    </div>
+    <div style="z-index:-2;" class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+
+        const loginButton = document.getElementById('googlelogin');
+        loginButton.addEventListener('click', () => {
+            window.location.href = '/auth/google';
+        });
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const info = urlParams.get('info');
+
+        if (info) {
+            const errorMessage = document.getElementById("error-message");
+            errorMessage.innerText = info;
+            errorMessage.style.display = "block";
+        }
+
+    const loginForm = document.getElementById("login-form");
+    const loginButton1 = document.getElementById("login-form-submit");
+    const loginErrorMsg = document.getElementById("login-error-msg");
+
+    loginButton1.addEventListener("click", (e) => {
+    e.preventDefault();
+    const username = loginForm.username.value;
+    const password = loginForm.password.value;
+
+    if (username === "abc" && password === "abc") {
+    alert("You have successfully logged in.");
+    location.href = './protected';
+    } else {
+    alert("Entered Username and/or password is incorrect");
+    }
+    });
+
+    </script>
+    <script src="login.js"></script>
+
+</html>
