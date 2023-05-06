@@ -257,7 +257,6 @@
 
     function generateRecommendations() {
         var avg_calories = document.getElementById("calories").value;
-        avg_calories -= data;
         console.log(data);
         var onsubmit = document.getElementById("onsubmit");
         onsubmit.innerHTML = `<p>Based on your calorie data, we recommend the following diet:</p>
@@ -267,19 +266,15 @@
                 <ul id="suggestions"></ul>
                 </div>`;
         onsubmit.style.display;
-        if (avg_calories > 100) {
+        if (avg_calories < 2500) {
             document.getElementById("recommendation").innerHTML = "You should try a low-calorie diet, such as the 1200 calorie meal plan. Try:";
             document.getElementById("suggestions").innerHTML = "<li>Roasted vegetables <li>Baked salmon with sweet potatoes <li>Turkey chili with brown rice.";
-        } else if (avg_calories >= 0 && avg_calories < 100) {
+        } else if (avg_calories >= 1500 && avg_calories < 2500) {
             document.getElementById("recommendation").innerHTML = "You are consuming a moderate amount of calories. Try a balanced diet with whole grains, lean protein, and plenty of fruits and vegetables.";
             document.getElementById("suggestions").innerHTML = "<li>A quinoa bowl with mixed veggies and tofu <li>A salad with mixed green <li>Avocado.";
-        } else if (avg_calories < 0){
+        } else if (avg_calories < 1500){
             document.getElementById("recommendation").innerHTML = "You may want to consider a high-protein diet to help maintain muscle mass.";
             document.getElementById("suggestions").innerHTML = "<li>A protein shake with mixed berries <li>Almond milk and protein powder <li>Spinach.";
-        }
-        else{
-            document.getElementById("recommendation").innerHTML = "Fatal error, either your input was false or the calories burnt data was not fetched";
-            document.getElementById("suggestions").innerHTML = "==== No data fetched ====";
         }
     }
 </script>
