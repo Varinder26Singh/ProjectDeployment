@@ -67,8 +67,12 @@ app.get('/', (req, res) => {
   res.sendFile(`${base}/welcome.html`);
 });
 
+// app.get('/water', (req, res) => {
+//   res.sendFile(`${base}/water.html`); //res.redirect('https://sensordata1.onrender.com');
+// });
+
 app.get('/water', (req, res) => {
-  res.sendFile(`${base}/water.html`);
+  res.redirect('https://sensordata1.onrender.com');
 });
 
 app.get('/login', (req, res) => {
@@ -120,9 +124,14 @@ app.get('/protected/Meal_Plan/Dinner', isLoggedIn, (req, res) => {
   res.sendFile(`${base}/Dinner.html`);
 });
 
+// app.get('/protected/Watch', isLoggedIn, (req, res) => {
+//   res.sendFile(`${base}/main.html`);
+// });
+
 app.get('/protected/Watch', isLoggedIn, (req, res) => {
-  res.sendFile(`${base}/main.html`);
+  res.redirect('https://sensordata1.onrender.com');
 });
+
 
 app.get('/result', (req, res) => {
   res.sendFile(`${base}/result.txt`);
