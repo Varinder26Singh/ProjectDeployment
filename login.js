@@ -18,22 +18,22 @@ app.use(express.static('pages'));
 
 
 // VArinder
-// passport.use(new GoogleStrategy({
-//   clientID: '20076057053-3val3d45uccn58a2oq7envs26khi8511.apps.googleusercontent.com',
-//   clientSecret: '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',
-//   callbackURL: "http://localhost:5000/google/callback"
-// }, (accessToken, refreshToken, profile, done) => {
-//   done(null, profile);
-// }));
-
-
 passport.use(new GoogleStrategy({
-  clientID: '268220279857-0nm3v5me8ncnhi26eedvlt04ggt4r0r0.apps.googleusercontent.com',
-  clientSecret: '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',
-  callbackURL: "https://healthyhive.onrender.com/google/callback"
+  clientID: '20076057053-3val3d45uccn58a2oq7envs26khi8511.apps.googleusercontent.com',
+  clientSecret: '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',
+  callbackURL: "http://localhost:5000/google/callback"
 }, (accessToken, refreshToken, profile, done) => {
   done(null, profile);
 }));
+
+
+// passport.use(new GoogleStrategy({
+//   clientID: '268220279857-0nm3v5me8ncnhi26eedvlt04ggt4r0r0.apps.googleusercontent.com',
+//   clientSecret: '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',
+//   callbackURL: "https://healthyhive.onrender.com/google/callback"
+// }, (accessToken, refreshToken, profile, done) => {
+//   done(null, profile);
+// }));
 
 // Configure passport.js session handling
 passport.serializeUser((user, done) => {
