@@ -21,7 +21,7 @@ app.use(express.static('pages'));
 passport.use(new GoogleStrategy({
   clientID: '20076057053-3val3d45uccn58a2oq7envs26khi8511.apps.googleusercontent.com',
   clientSecret: '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',
-  callbackURL: "http://localhost:5000/google/callback"
+  callbackURL: "https://healthyhive.onrender.com/google/callback"
 }, (accessToken, refreshToken, profile, done) => {
   done(null, profile);
 }));
