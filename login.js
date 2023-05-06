@@ -7,9 +7,17 @@ const app = express();
 const port = 5000;
 app.use(express.static('pages'));
 // Configure passport.js with the Google strategy
+// passport.use(new GoogleStrategy({
+//   clientID: '268220279857-0nm3v5me8ncnhi26eedvlt04ggt4r0r0.apps.googleusercontent.com',
+//   clientSecret: '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',
+//   callbackURL: "http://localhost:5000/google/callback"
+// }, (accessToken, refreshToken, profile, done) => {
+//   done(null, profile);
+// }));
+
 passport.use(new GoogleStrategy({
-  clientID: '268220279857-0nm3v5me8ncnhi26eedvlt04ggt4r0r0.apps.googleusercontent.com',
-  clientSecret: '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',
+  clientID: '20076057053-2tfq109fqk32vd3d5d6gsigr58fq1fig.apps.googleusercontent.com',
+  clientSecret: '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',
   callbackURL: "http://localhost:5000/google/callback"
 }, (accessToken, refreshToken, profile, done) => {
   done(null, profile);
