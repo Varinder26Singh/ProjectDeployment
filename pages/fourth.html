@@ -243,8 +243,12 @@
 
 
     document.getElementById("myButton").addEventListener("click", function () {
-        window.open("http://localhost:3000/auth", "_blank");
+        window.open("https://watch-xf2t.onrender.com", "_blank");
     });
+        
+//     document.getElementById("myButton").addEventListener("click", function () {
+//         window.open("http://localhost:3000/auth", "_blank"); # https://watch-xf2t.onrender.com
+//     });
 
     fetch('/result')
         .then(response => response.text())
